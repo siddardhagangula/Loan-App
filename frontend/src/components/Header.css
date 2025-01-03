@@ -1,0 +1,41 @@
+/* Header styling */
+.header {
+    background-color: #333; /* Dark background */
+    color: white; /* White text */
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .header h1 {
+    font-size: 2rem;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Navigation styling */
+  nav {
+    display: flex;
+    gap: 20px; /* Space between the links */
+  }
+  
+  nav a, .user {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  /* Hover effect on links */
+  nav a:hover {
+    color: #ff5722; /* Change to a bright color on hover */
+  }
+  
+  /* Active link styling (optional) */
+  nav a.active {
+    color: #ff5722; /* Active link color */
+    font-weight: 600;
+  }
+  

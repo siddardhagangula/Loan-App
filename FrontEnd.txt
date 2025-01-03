@@ -1,0 +1,16 @@
+src/
+  components/
+    Header.js
+    Footer.js
+  pages/
+    Home.js
+    Login.js
+    Signup.js
+    LoanApplication.js
+    Dashboard.js
+  App.js
+  index.js
+  styles/
+    App.css
+    Home.css
+    Login.css

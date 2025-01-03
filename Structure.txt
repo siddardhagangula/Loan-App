@@ -1,0 +1,18 @@
+loan-application-backend/
+│
+├── config/
+│   └── db.js               # Database connection logic
+├── controllers/
+│   ├── authController.js   # Authentication logic
+│   └── loanController.js   # Loan application logic
+├── middleware/
+│   └── authMiddleware.js   # Authentication middleware
+├── models/
+│   ├── User.js             # User schema
+│   └── LoanApplication.js  # Loan application schema
+├── routes/
+│   ├── authRoutes.js       # Auth-related routes
+│   └── loanRoutes.js       # Loan-related routes
+├── .env                    # Environment variables
+├── server.js               # Entry point for backend
+└── package.json            # Backend dependencies
