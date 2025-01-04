@@ -26,7 +26,7 @@
 //   const [showPopup, setShowPopup] = useState(false); // Control pop-up visibility
 //   const navigate = useNavigate(); // Initialize useNavigate
 
-  
+
 
 //   // Check if the user is logged in by verifying token
 //   useEffect(() => {
@@ -325,75 +325,85 @@ function LoanApplication() {
   }
 
   return (
-    <div className="loan-application-container">
-      <h2>Loan Application Form</h2>
-      {message && <p className="success-message">{message}</p>}
-      {error && <p className="error-message">{error}</p>}
-      <form onSubmit={handleSubmit}>
-        {step === 1 && (
-          <div className="personal-details">
-            <h3>Personal Details</h3>
-            <label>Name:</label>
-            <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+    <div className="loan-application-page">
+      <div className="loan-application-container">
+        <h2>Loan Application Form</h2>
+        {message && <p className="success-message">{message}</p>}
+        {error && <p className="error-message">{error}</p>}
 
-            <label>Email:</label>
-            <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+        <form onSubmit={handleSubmit} className="loan-application-form">
+          {step === 1 && (
+            <div className="personal-details">
+              <h3>Personal Details</h3>
+              <div className="form-group">
+                <label htmlFor="name">Name:</label>
+                <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required />
+              </div>
 
-            <label>Phone:</label>
-            <input type="text" name="phone" value={formData.phone} onChange={handleChange} required />
+              <div className="form-group">
+                <label htmlFor="email">Email:</label>
+                <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
+              </div>
 
-            <label>Age:</label>
-            <input type="number" name="age" value={formData.age} onChange={handleChange} required />
+              <div className="form-group">
+                <label htmlFor="phone">Phone:</label>
+                <input type="text" id="phone" name="phone" value={formData.phone} onChange={handleChange} required />
+              </div>
 
-            <label>Address:</label>
-            <textarea name="address" value={formData.address} onChange={handleChange} required></textarea>
+              <div className="form-group">
+                <label htmlFor="age">Age:</label>
+                <input type="number" id="age" name="age" value={formData.age} onChange={handleChange} required />
+              </div>
 
-            <button type="button" onClick={handleNext}>Next</button>
+              <div className="form-group">
+                <label htmlFor="address">Address:</label>
+                <textarea id="address" name="address" value={formData.address} onChange={handleChange} required></textarea>
+              </div>
+
+              <div className="form-navigation">
+                <button type="button" className="next-button" onClick={handleNext}>Next</button>
+              </div>
+            </div>
+          )}
+
+          {step === 2 && (
+            <div className="financial-details">
+              <h3>Financial Details</h3>
+              {[
+                ["monthlyIncome", "Monthly Income"],
+                ["requestedLoanAmount", "Requested Loan Amount"],
+                ["tenureMonths", "Tenure (Months)"],
+                ["cibilScore", "CIBIL Score"],
+                ["debtToIncomeRatio", "Debt-to-Income Ratio"],
+                ["annualIncome", "Annual Income"],
+                ["employerName", "Employer Name"],
+                ["designation", "Designation"]
+              ].map(([name, label]) => (
+                <div className="form-group" key={name}>
+                  <label htmlFor={name}>{label}:</label>
+                  <input type="text" id={name} name={name} value={formData[name]} onChange={handleChange} required />
+                </div>
+              ))}
+
+              <div className="form-navigation">
+                <button type="button" className="previous-button" onClick={handlePrevious}>Previous</button>
+                <button type="submit" className="submit-button">Submit</button>
+              </div>
+            </div>
+          )}
+        </form>
+
+        {showPopup && (
+          <div className="popup-container">
+            <div className="popup-card">
+              <p>Thank you for providing your details. Our team will review your eligibility and get back to you shortly.</p>
+              <button className="popup-button" onClick={handlePopupClose}>OK</button>
+            </div>
           </div>
         )}
-
-        {step === 2 && (
-          <div className="financial-details">
-            <h3>Financial Details</h3>
-            <label>Monthly Income:</label>
-            <input type="number" name="monthlyIncome" value={formData.monthlyIncome} onChange={handleChange} required />
-
-            <label>Requested Loan Amount:</label>
-            <input type="number" name="requestedLoanAmount" value={formData.requestedLoanAmount} onChange={handleChange} required />
-
-            <label>Tenure (Months):</label>
-            <input type="number" name="tenureMonths" value={formData.tenureMonths} onChange={handleChange} required />
-
-            <label>CIBIL Score:</label>
-            <input type="number" name="cibilScore" value={formData.cibilScore} onChange={handleChange} required />
-
-            <label>Debt-to-Income Ratio:</label>
-            <input type="number" name="debtToIncomeRatio" value={formData.debtToIncomeRatio} onChange={handleChange} required />
-
-            <label>Annual Income:</label>
-            <input type="number" name="annualIncome" value={formData.annualIncome} onChange={handleChange} required />
-
-            <label>Employer Name:</label>
-            <input type="text" name="employerName" value={formData.employerName} onChange={handleChange} required />
-
-            <label>Designation:</label>
-            <input type="text" name="designation" value={formData.designation} onChange={handleChange} required />
-
-            <button type="button" onClick={handlePrevious}>Previous</button>
-            <button type="submit">Submit</button>
-          </div>
-        )}
-      </form>
-
-      {showPopup && (
-        <div className="popup-container">
-          <div className="popup-card">
-            <p>Thank you for providing your details. Our team will review your eligibility and get back to you shortly.</p>
-            <button onClick={handlePopupClose}>OK</button>
-          </div>
-        </div>
-      )}
+      </div>
     </div>
+
   );
 }
 

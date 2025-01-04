@@ -28,7 +28,13 @@ function App() {
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
+          <div style={{
+            position: 'relative',
+            bottom:'0',
+            // right:'50%',
+          }}>
           <Footer />
+          </div>
         </div>
       </Router>
     </AuthProvider>

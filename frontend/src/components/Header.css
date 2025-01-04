@@ -39,3 +39,11 @@
     font-weight: 600;
   }
   
+  .logout-button{
+    border: 2px solid green;
+    border-radius: 10px;
+    background-color: green;
+    color: #fff;
+    padding: 5px 15px;
+    cursor: pointer ;
+  }
