@@ -115,7 +115,7 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-container">
-      <h2>{user?.role === 'admin' ? 'All Loan Applications' : 'Your Loan Applications'}</h2>
+      <h2 className='text-primary py-4'>{user?.role === 'admin' ? 'All Loan Applications' : 'Your Loan Applications'}</h2>
       {error && <p className="error-message">{error}</p>}
       {loans.length > 0 ? (
         <div className="loans-table">

@@ -327,7 +327,7 @@ function LoanApplication() {
   return (
     <div className="loan-application-page">
       <div className="loan-application-container">
-        <h2>Loan Application Form</h2>
+        <h2 className="text-primary">Loan Application Form</h2>
         {message && <p className="success-message">{message}</p>}
         {error && <p className="error-message">{error}</p>}
 
